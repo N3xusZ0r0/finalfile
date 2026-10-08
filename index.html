@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Developer Portfolio | Cybersecurity Student</title>
+<meta name="description" content="Student developer portfolio: programming, cybersecurity and computer systems.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="scan" aria-hidden="true"></div>
+
+<!-- ============ INTRO / BOOT SCREEN ============ -->
+<div id="boot" role="dialog" aria-label="Intro animation">
+  <div class="boot-top">
+    <button id="audioBtn" class="btn small" aria-pressed="false">CYBER AUDIO: OFF</button>
+    <button id="skipBtn" class="btn small">[ SKIP INTRO ]</button>
+  </div>
+  <div class="hacker" aria-hidden="true"><span class="eye l"></span><span class="eye r"></span></div>
+  <div id="bootLog" class="boot-log" aria-live="polite"></div>
+  <h1 id="pwned" class="pwned glitch-big" data-text="YOU HAVE BEEN PWNED" hidden>YOU HAVE BEEN PWNED</h1>
+  <p id="granted" class="granted" hidden>ACCESS GRANTED</p>
+  <button id="enterBtn" class="btn big" hidden>[ ENTER PORTFOLIO ]</button>
+  <label class="remember"><input type="checkbox" id="rememberSkip"> Skip intro next time</label>
+</div>
+
+<!-- ============ NAVIGATION ============ -->
+<header class="nav" id="top">
+  <a class="logo" href="#home" aria-label="Go to home">&lt;<span id="logoName">dev</span>/&gt;</a>
+  <button id="burger" class="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  <nav id="menu" aria-label="Main">
+    <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#education">Education</a>
+    <a href="#achievements">Achievements</a><a href="#projects">Projects</a><a href="#terminal">Terminal</a><a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-text">
+    <p class="mono green">&gt; hello_world()</p>
+    <h1 class="name"><span id="heroName">JOSEPH ZHARIEL A. SAMANIEGO</span></h1>
+    <h2 class="role">Aspiring Programmer &amp; Cybersecurity Student</h2>
+    <p id="heroTag" class="muted"></p>
+    <div class="cta"><a class="btn" href="#projects">View projects</a><a class="btn alt" href="#terminal">Open terminal</a></div>
+  </div>
+  <div class="hero-side">
+    <div class="avatar tilt"><img src="photo.jpg" alt="Photo of Joseph Zhariel A. Samaniego"></div>
+    <div class="mini-term glass mono" aria-hidden="true">
+      <p>&gt; hello_world()</p><p>&gt; initializing developer profile...</p><p>&gt; status: <b class="green">ONLINE</b><span class="cursor"></span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="sec reveal">
+  <h2 class="title glitch" data-text="About">About</h2>
+  <p id="bio" class="bio"></p>
+  <div id="profileCards" class="grid cards"></div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="sec reveal">
+  <h2 class="title glitch" data-text="Skills">Skills &amp; Knowledge</h2>
+  <div id="skillGrid" class="grid cards"></div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="sec">
+  <h2 class="title glitch" data-text="Education">Education</h2>
+  <ol id="timeline" class="timeline"></ol>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements" class="sec reveal">
+  <h2 class="title glitch" data-text="Achievements">Achievements</h2>
+  <div id="achGrid" class="grid cards"></div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="sec reveal">
+  <h2 class="title glitch" data-text="Projects">Projects</h2>
+  <p class="muted">Cards marked EXAMPLE are placeholders. Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> to edit them.</p>
+  <div id="projGrid" class="grid cards"></div>
+</section>
+
+<!-- TERMINAL -->
+<section id="terminal" class="sec reveal">
+  <h2 class="title glitch" data-text="Terminal">Terminal</h2>
+  <div class="term glass" id="termBox">
+    <div class="term-bar"><i></i><i></i><i></i><span class="mono">user@portfolio:~$</span></div>
+    <div id="termOut" class="term-out mono" role="log" aria-live="polite"></div>
+    <div class="term-in mono"><label for="termIn" class="prompt">user@portfolio:~$</label>
+      <input id="termIn" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal command input"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sec reveal">
+  <h2 class="title glitch" data-text="Contact">Contact</h2>
+  <div id="contactCards" class="grid cards"></div>
+</section>
+</main>
+
+<footer class="foot">
+  <p class="mono green">SYSTEM STATUS: ONLINE</p>
+  <p>&copy; 2026 <span id="footName">JOSEPH ZHARIEL SAMANIEGO</span> &middot; Built with HTML &bull; CSS &bull; JavaScript</p>
+  <p class="mono muted">&gt; Keep learning. Keep building. Keep exploring.</p>
+  <button id="adminOpen" class="btn small alt">Edit content (Ctrl+Shift+A)</button>
+</footer>
+
+<!-- ============ ADMIN MODAL (local demo only) ============ -->
+<div id="admin" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+  <div class="panel glass">
+    <h2 id="adminTitle">Content Manager</h2>
+    <p class="warn">&#9888; This is a client-side demo admin panel. It is NOT secure authentication.</p>
+    <div class="tabs" role="tablist">
+      <button class="btn small" data-tab="projects" role="tab">Projects</button>
+      <button class="btn small" data-tab="achievements" role="tab">Achievements</button>
+    </div>
+    <ul id="adminList" class="admin-list"></ul>
+    <form id="adminForm" class="admin-form"></form>
+    <div class="admin-actions">
+      <button id="adminReset" class="btn small alt" type="button">Reset to defaults</button>
+      <button id="adminClose" class="btn small" type="button">Close</button>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
